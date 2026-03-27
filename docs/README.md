@@ -14,7 +14,7 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 
 ## 📦 Estrutura
 - db/: scripts schema e seed
-- ejb-module/: serviço EJB com bug a ser corrigido
+- backend-for-frontend-module/: serviço em Spring resposável por repassar as chamadas do front para o backend
 - backend-module/: backend Spring Boot
 - frontend/: app Angular
 - docs/: instruções e critérios
@@ -29,13 +29,13 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 6. Documentar (Swagger, README)
 7. Submeter via fork + PR
 
-## 🐞 Bug no EJB
+## 🐞 Bug
 - Transferência não verifica saldo, não usa locking, pode gerar inconsistência
 - Espera-se correção com validações, rollback, locking/optimistic locking
 
 ## 📊 Critérios de avaliação
 - Arquitetura em camadas (20%)
-- Correção EJB (20%)
+- Correção EJB (20%) **
 - CRUD + Transferência (15%)
 - Qualidade de código (10%)
 - Testes (15%)
