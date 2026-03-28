@@ -15,12 +15,22 @@ public class BenefitServiceImpl implements BenefitService {
     BenefitFacade benefitFacade;
 
     @Override
-    public List<BenefitDTO> findBenefits() {
-        return benefitFacade.getBenefits();
+    public Long createBenefit(BenefitDTO benefitDTO) {
+        return benefitFacade.createBenefit(benefitDTO);
     }
 
     @Override
-    public List<String> list() {
-        return benefitFacade.list();
+    public BenefitDTO updateBenefit(Long id, BenefitDTO benefitDTO) {
+        return benefitFacade.updateBenefit(id, benefitDTO);
+    }
+
+    @Override
+    public BenefitDTO findBenefitById(Long id) {
+        return benefitFacade.findBenefitById(id);
+    }
+
+    @Override
+    public List<BenefitDTO> findBenefits() {
+        return benefitFacade.getBenefits();
     }
 }

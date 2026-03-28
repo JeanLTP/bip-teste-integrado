@@ -1,4 +1,4 @@
-package com.example.backend.domain.entity;
+package com.example.backendforfrontend.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-@Builder
 @Data
 @Entity
 @NoArgsConstructor

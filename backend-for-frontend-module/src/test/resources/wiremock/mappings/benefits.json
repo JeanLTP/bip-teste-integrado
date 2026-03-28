@@ -1,0 +1,14 @@
+{
+  "priority": 99,
+  "request": {
+    "method": "GET",
+    "url": "/benefits"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "list_of_benefits.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

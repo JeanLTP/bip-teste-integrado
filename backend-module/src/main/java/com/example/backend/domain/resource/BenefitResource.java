@@ -3,24 +3,43 @@ package com.example.backend.domain.resource;
 import com.example.backend.domain.model.BenefitDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
+import jakarta.websocket.server.PathParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Tag(name= "Benefícios", description = "Responsável por interações relacionadas a benefícios.")
+@RequestMapping("/benefits")
 public interface BenefitResource {
 
-    @GetMapping("/benefits")
+    @PostMapping("")
     @Operation(
-            summary = "Busca de todos os benefícios cadastrados.",
-            description = "Retorna todos os benefícios."
+            summary = "Efetua a criação de um novo benefício.",
+            description = "Retorna o ID do beneficio criado."
     )
-    public List<BenefitDTO> findBenefits();
+    Long createBenefit(@RequestBody BenefitDTO benefitDTO);
 
-    @GetMapping("/test")
+    @GetMapping("")
     @Operation(
             summary = "Busca de todos os benefícios cadastrados.",
             description = "Retorna todos os benefícios."
     )
-    public List<String> list();
+    List<BenefitDTO> findBenefits();
+
+    @GetMapping("/{id}")
+    @Operation(
+            summary = "Busca benefício por id.",
+            description = "Retorna benefício consultado."
+    )
+    BenefitDTO findBenefitById(@PathVariable Long id);
+
+    @PutMapping("/{id}")
+    @Operation(
+            summary = "Atualiza um beneficio existente.",
+            description = "Retorna o objeto do beneficio atualizado."
+    )
+    BenefitDTO updateBenefit(
+            @PathVariable Long id,
+            @RequestBody BenefitDTO benefitDTO
+    );
 }

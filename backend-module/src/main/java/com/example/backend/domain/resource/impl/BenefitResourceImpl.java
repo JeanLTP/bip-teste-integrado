@@ -16,12 +16,20 @@ public class BenefitResourceImpl implements BenefitResource {
 
 
     @Override
+    public Long createBenefit(BenefitDTO benefitDTO) {
+        return benefitService.createBenefit(benefitDTO);
+    }
+
+    @Override
     public List<BenefitDTO> findBenefits() {
         return benefitService.findBenefits();
     }
 
     @Override
-    public List<String> list() {
-        return  benefitService.list();
+    public BenefitDTO findBenefitById(Long id) { return benefitService.findBenefitById(id); }
+
+    @Override
+    public BenefitDTO updateBenefit(Long id, BenefitDTO benefitDTO) {
+        return benefitService.updateBenefit(id, benefitDTO);
     }
 }
