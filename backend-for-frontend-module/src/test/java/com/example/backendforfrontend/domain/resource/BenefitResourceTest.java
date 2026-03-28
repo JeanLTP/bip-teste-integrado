@@ -1,4 +1,4 @@
-package com.example.backend.domain.resource;
+package com.example.backendforfrontend.domain.resource;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
