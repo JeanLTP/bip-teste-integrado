@@ -12,5 +12,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Build backend
-        run: mvn -B -f backend-module clean package
+      - name: Build bff-benefit-module
+        run: mvn -B -f bff-benefit-module clean package
+      - name: Build ms-benefit-module
+        run: mvn -B -f ms-benefit-module clean package
