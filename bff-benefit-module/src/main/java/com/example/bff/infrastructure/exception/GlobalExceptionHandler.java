@@ -1,4 +1,4 @@
-package com.example.backendforfrontend.infrastructure.exception;
+package com.example.bff.infrastructure.exception;
 
 import feign.FeignException;
 import org.springframework.http.HttpStatus;

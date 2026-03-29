@@ -1,6 +1,6 @@
-package com.example.backendforfrontend.domain.resource;
+package com.example.bff.domain.resource;
 
-import com.example.backendforfrontend.domain.model.BenefitDTO;
+import com.example.bff.domain.model.BenefitDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;

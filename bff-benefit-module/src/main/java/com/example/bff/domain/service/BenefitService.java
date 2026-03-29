@@ -1,6 +1,6 @@
-package com.example.backendforfrontend.domain.service;
+package com.example.bff.domain.service;
 
-import com.example.backendforfrontend.domain.model.BenefitDTO;
+import com.example.bff.domain.model.BenefitDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

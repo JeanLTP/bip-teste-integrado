@@ -1,8 +1,7 @@
-package com.example.backendforfrontend.application.facade;
+package com.example.bff.application.facade;
 
-import com.example.backendforfrontend.domain.entity.BenefitEntity;
-import com.example.backendforfrontend.domain.model.BenefitDTO;
-import com.example.backendforfrontend.infrastructure.client.BenefitClient;
+import com.example.bff.domain.model.BenefitDTO;
+import com.example.bff.infrastructure.client.BenefitClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

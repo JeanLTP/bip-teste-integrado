@@ -1,10 +1,11 @@
-package com.example.backendforfrontend.domain.model;
+package com.example.bff.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Data
@@ -14,7 +15,7 @@ public class BenefitDTO {
     private Long id;
     private String name;
     private String description;
-    private Long value;
+    private BigDecimal value;
     private boolean active;
     private Long version;
 }

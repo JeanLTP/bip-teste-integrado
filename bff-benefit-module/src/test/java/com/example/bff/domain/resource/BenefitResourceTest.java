@@ -1,6 +1,6 @@
-package com.example.backendforfrontend.domain.resource;
+package com.example.bff.domain.resource;
 
-import com.example.backendforfrontend.BackendForFrontendApplication;
+import com.example.bff.BackendForFrontendApplication;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package com.example.backendforfrontend;
+package com.example.bff;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.*;

@@ -4,15 +4,21 @@ import com.example.backend.domain.mapping.BenefitMapper;
 import com.example.backend.domain.model.BenefitDTO;
 import com.example.backend.domain.service.BenefitService;
 import com.example.backend.infrastructure.repository.BenefitRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
 public class BenefitServiceImpl implements BenefitService {
+
+    private static final String SENDER_NOT_EXISTS = "Remetente não existente.";
+    private static final String RECEIVER_NOT_EXISTS = "Destinatário não existente";
+
 
     @Autowired
     BenefitRepository benefitRepository;
@@ -61,4 +67,21 @@ public class BenefitServiceImpl implements BenefitService {
         return benefitMapper.mapToDto(updated);
 
     }
+
+    @Override
+    @Transactional
+    public void transfer(Long fromId, Long toId, BigDecimal amount) {
+        var sender = benefitRepository.findById(fromId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, SENDER_NOT_EXISTS));
+
+        var receiver = benefitRepository.findById(toId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, RECEIVER_NOT_EXISTS));
+
+        sender.withdraw(amount);
+        receiver.deposit(amount);
+
+        benefitRepository.saveAll(List.of(sender, receiver));
+
+    }
+
 }

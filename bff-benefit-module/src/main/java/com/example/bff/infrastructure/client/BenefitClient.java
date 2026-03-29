@@ -1,6 +1,6 @@
-package com.example.backendforfrontend.infrastructure.client;
+package com.example.bff.infrastructure.client;
 
-import com.example.backendforfrontend.domain.model.BenefitDTO;
+import com.example.bff.domain.model.BenefitDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

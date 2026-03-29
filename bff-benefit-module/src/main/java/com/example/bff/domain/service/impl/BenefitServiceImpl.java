@@ -1,8 +1,8 @@
-package com.example.backendforfrontend.domain.service.impl;
+package com.example.bff.domain.service.impl;
 
-import com.example.backendforfrontend.application.facade.BenefitFacade;
-import com.example.backendforfrontend.domain.model.BenefitDTO;
-import com.example.backendforfrontend.domain.service.BenefitService;
+import com.example.bff.application.facade.BenefitFacade;
+import com.example.bff.domain.model.BenefitDTO;
+import com.example.bff.domain.service.BenefitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
