@@ -1,14 +1,16 @@
 package com.example.backendforfrontend.domain.service;
 
 import com.example.backendforfrontend.domain.model.BenefitDTO;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface BenefitService {
-    Long createBenefit(BenefitDTO benefitDTO);
+    ResponseEntity<Map<String, Long>> createBenefit(BenefitDTO benefitDTO);
     List<BenefitDTO> findBenefits();
-    BenefitDTO findBenefitById(Long id);
+    ResponseEntity<BenefitDTO> findBenefitById(Long id);
     BenefitDTO updateBenefit(Long id, BenefitDTO benefitDTO);
 }

@@ -1,14 +1,81 @@
+
 {
-  "priority": 99,
-  "request": {
-    "method": "GET",
-    "url": "/benefits"
-  },
-  "response": {
-    "status": 200,
-    "bodyFileName": "list_of_benefits.json",
-    "headers": {
-      "Content-Type": "application/json"
+  "mappings": [
+    {
+      "priority": 99,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/benefits"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "list_of_benefits.json",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 99,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/benefits/{id}",
+        "pathParameters": {
+          "id": {
+            "equalTo": "1"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "benefit_example.json",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "url": "/benefits",
+        "bodyPatterns": [
+          {
+            "equalToJson": {
+              "name": "Carteira Teste",
+              "description": "Teste",
+              "value": 4000,
+              "active": true
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "id": 4
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/benefits/{id}",
+        "pathParameters": {
+          "id": { "equalTo": "99" }
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "jsonBody": {
+          "message": "Benefício não encontrado"
+        }
+      }
     }
-  }
+  ]
 }

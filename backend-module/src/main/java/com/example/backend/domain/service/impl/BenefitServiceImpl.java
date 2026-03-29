@@ -1,16 +1,15 @@
 package com.example.backend.domain.service.impl;
 
-import com.example.backend.domain.entity.BenefitEntity;
 import com.example.backend.domain.mapping.BenefitMapper;
 import com.example.backend.domain.model.BenefitDTO;
 import com.example.backend.domain.service.BenefitService;
 import com.example.backend.infrastructure.repository.BenefitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class BenefitServiceImpl implements BenefitService {
@@ -32,20 +31,20 @@ public class BenefitServiceImpl implements BenefitService {
 
     @Override
     public List<BenefitDTO> findBenefits() {
-        var entityList = benefitRepository.findAll();
-        return entityList.stream()
-                .map(entity -> benefitMapper.mapToDto(entity))
+        return benefitRepository.findAll()
+                .stream()
+                .map(benefitMapper::mapToDto)
                 .toList();
     }
 
     @Override
     public BenefitDTO findBenefitById(Long id) {
-        var existEntity = benefitRepository.findById(id);
-        if (existEntity.isEmpty()) {
-            throw new RuntimeException("Benefício que foi solicitado a alteração não encontrado na base.");
-        }
-
-        return benefitMapper.mapToDto(existEntity.get());
+        return benefitRepository.findById(id)
+                .map(benefitMapper::mapToDto)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Benefício não encontrado"
+                ));
     }
 
     @Override

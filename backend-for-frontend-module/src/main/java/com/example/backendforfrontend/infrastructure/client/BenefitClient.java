@@ -1,17 +1,18 @@
 package com.example.backendforfrontend.infrastructure.client;
 
-import com.example.backendforfrontend.domain.entity.BenefitEntity;
 import com.example.backendforfrontend.domain.model.BenefitDTO;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @FeignClient(name = "benefitBackend", url = "${benefit.backend.url}")
 public interface BenefitClient {
 
     @PostMapping("/benefits")
-    Long createBenefit(@RequestBody BenefitDTO benefitEntity);
+    ResponseEntity<Map<String, Long>> createBenefit(@RequestBody BenefitDTO benefitEntity);
 
     @GetMapping("/benefits")
     List<BenefitDTO> getBenefits();

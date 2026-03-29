@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "name": "Carteira Principal",
+  "description": "Saldo disponível para transferências",
+  "value": 2000,
+  "active": true,
+  "version": 0
+}

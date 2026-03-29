@@ -3,9 +3,11 @@ package com.example.backendforfrontend.domain.resource;
 import com.example.backendforfrontend.domain.model.BenefitDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RequestMapping("/api/v1/benefits")
 @Tag(name= "Benefícios", description = "Responsável por interações relacionadas a benefícios.")
@@ -16,7 +18,7 @@ public interface BenefitResource {
             summary = "Efetua a criação de um novo benefício.",
             description = "Retorna o ID do beneficio criado."
     )
-    Long createBenefit(@RequestBody BenefitDTO benefitDTO);
+    ResponseEntity<Map<String, Long>> createBenefit(@RequestBody BenefitDTO benefitDTO);
 
     @GetMapping("")
     @Operation(
@@ -30,7 +32,7 @@ public interface BenefitResource {
             summary = "Busca benefício por id.",
             description = "Retorna benefício consultado."
     )
-    BenefitDTO findBenefitById(@PathVariable Long id);
+    ResponseEntity<BenefitDTO> findBenefitById(@PathVariable Long id);
 
     @PutMapping("/{id}")
     @Operation(

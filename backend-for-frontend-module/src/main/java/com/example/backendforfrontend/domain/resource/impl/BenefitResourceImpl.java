@@ -4,9 +4,11 @@ import com.example.backendforfrontend.domain.model.BenefitDTO;
 import com.example.backendforfrontend.domain.resource.BenefitResource;
 import com.example.backendforfrontend.domain.service.BenefitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class BenefitResourceImpl implements BenefitResource {
@@ -16,7 +18,7 @@ public class BenefitResourceImpl implements BenefitResource {
 
 
     @Override
-    public Long createBenefit(BenefitDTO benefitDTO) {
+    public ResponseEntity<Map<String, Long>> createBenefit(BenefitDTO benefitDTO) {
         return benefitService.createBenefit(benefitDTO);
     }
 
@@ -26,7 +28,7 @@ public class BenefitResourceImpl implements BenefitResource {
     }
 
     @Override
-    public BenefitDTO findBenefitById(Long id) {
+    public ResponseEntity<BenefitDTO> findBenefitById(Long id) {
         return benefitService.findBenefitById(id);
     }
 
