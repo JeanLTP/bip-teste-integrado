@@ -1,0 +1,58 @@
+<section class="container">
+    <h1>{{ isEdit ? 'Editar benefício' : 'Novo benefício' }}</h1>
+    
+    <p *ngIf="error" class="error">{{ error }}</p>
+    <form (ngSubmit)="save()" class="form">
+        <div class="field">
+            <label for="name">Nome</label>
+            <input
+                id="name"
+                name="name"
+                type="text"
+                [(ngModel)]="form.name"
+                required
+            />
+        </div>
+
+        <div class="field">
+            <label for="description">Descrição</label>
+            <input
+                id="description"
+                name="description"
+                type="text"
+                [(ngModel)]="form.description"
+            />
+        </div>
+
+        <div class="field">
+            <label for="value">Valor</label>
+            <div class="currency-input-container">
+                <span class="currency-prefix">R$</span>
+                <input
+                    id="value"
+                    name="value"
+                    type="number"
+                    step="0.01"
+                    [(ngModel)]="form.value"
+                    placeholder="0,00"
+                    required
+                />
+            </div>
+        </div>
+
+        <div class="checkbox-field">
+            <input
+                id="active"
+                name="active"
+                type="checkbox"
+                [(ngModel)]="form.active"
+            />
+            <label for="active">Ativo</label>
+        </div>
+
+        <div class="actions">
+            <a routerLink="/benefits" class="back-link">← Voltar</a>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,37 @@
+<section class="container">
+  <div class="header">
+    <h1>Benefícios</h1>
+    <a routerLink="/benefits/new" class="button">Novo benefício</a>
+  </div>
+
+  <p *ngIf="loading">Carregando...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+  <p *ngIf="!loading && !error && benefits.length === 0">Nenhum benefício encontrado.</p>
+
+  <table *ngIf="!loading && !error && benefits.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Ativo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let benefit of benefits">
+        <td>{{ benefit.id }}</td>
+        <td>{{ benefit.name }}</td>
+        <td>{{ benefit.description }}</td>
+        <td>R$ {{ benefit.value }}</td>
+        <td>{{ benefit.active ? 'Sim' : 'Não' }}</td>
+        <td>
+          <a [routerLink]="['/benefits', benefit.id]">Detalhes</a>
+          |
+          <a [routerLink]="['/benefits', benefit.id, 'edit']">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

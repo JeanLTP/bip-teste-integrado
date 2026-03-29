@@ -1,0 +1,37 @@
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.button {
+  background: #1976d2;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.error {
+  color: #c62828;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}

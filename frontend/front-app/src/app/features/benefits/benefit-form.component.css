@@ -1,0 +1,143 @@
+.container {
+    max-width: 800px;
+    margin: 24px auto;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: #1976d2;
+}
+
+.form {
+    margin-top: 16px;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.checkbox-field input {
+    width: auto;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between; /* Um em cada ponta */
+    align-items: center;
+    margin-top: 30px;
+}
+
+button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.95;
+}
+
+.error {
+    color: #c62828;
+}
+
+/* O container que simula o input */
+.currency-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 12px; /* Espaçamento interno */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    height: 40px; /* Altura padrão para inputs */
+}
+
+/* Quando o usuário clica para digitar */
+.currency-input-container:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo do R$ fixo */
+.currency-prefix {
+    color: #495057;
+    font-weight: bold;
+    margin-right: 8px;
+    user-select: none;
+    font-size: 14px; /* Mesma fonte do input */
+}
+
+/* O input real dentro do container de R$ */
+.currency-input-container input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    
+    /* IGUALANDO AOS OUTROS INPUTS */
+    padding: 10px 0; /* O mesmo padding vertical dos outros inputs */
+    font-size: 14px;  /* Ajuste para a mesma fonte do .field input */
+    font-family: inherit; /* Garante que a fonte seja a mesma do resto do form */
+    line-height: normal;
+}
+
+/* Remove as setinhas padrão do tipo number para um visual mais limpo */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.checkbox-field {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o checkbox e o texto */
+    gap: 8px;
+    margin-bottom: 20px;
+    cursor: pointer; /* Melhora a experiência do usuário */
+}
+
+/* Removemos as margens e o bloco do label específico do checkbox */
+.checkbox-field label {
+    display: inline; /* Diferente do display: block do .field label */
+    margin-bottom: 0; /* Remove a margem que está empurrando o texto para cima/baixo */
+    font-weight: normal; /* Geralmente labels de checkbox não são negrito, mas ajuste como preferir */
+    cursor: pointer;
+}
+
+/* Garante que o input não tenha margens estranhas */
+.checkbox-field input[type="checkbox"] {
+    width: 18px; /* Tamanho fixo para o checkbox */
+    height: 18px;
+    margin: 0;   /* Remove margens padrão do navegador */
+    cursor: pointer;
+}

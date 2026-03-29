@@ -1,0 +1,23 @@
+# Maven (Backend e BFF)
+**/target/
+target/
+*.class
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+out/
+gen/
+
+# VS Code
+.vscode/
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+.npm/
+
+# Logs e temporários
+*.log
+.DS_Store

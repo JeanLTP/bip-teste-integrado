@@ -1,0 +1,45 @@
+<section class="container">
+    <h1 text="center">Detalhe do benefício</h1>
+    <p *ngIf="loading">Carregando...</p>
+    <p *ngIf="error" class="error">{{ error }}</p>
+    
+    <div *ngIf="benefit" class="card">
+        <div class="row">
+            <span class="label">ID</span>
+            <span>{{ benefit.id }}</span>
+        </div>
+        
+        <div class="row">
+            <span class="label">Nome</span>
+            <span>{{ benefit.name }}</span>
+        </div>
+        
+        <div class="row">
+            <span class="label">Descrição</span>
+            <span>{{ benefit.description }}</span>
+        </div>
+        
+        <div class="row">
+            <span class="label">Valor</span>
+            <span>R$ {{ benefit.value }}</span>
+        </div>
+        
+        <div class="row">
+            <span class="label">Ativo</span>
+            <span>{{ benefit.active ? 'Sim' : 'Não' }}</span>
+        </div>
+        
+        <div class="row">
+            <span class="label">Versão</span>
+            <span>{{ benefit.version }}</span>
+        </div>
+    </div>
+    <div *ngIf="benefit" class="actions">
+        <a routerLink="/benefits" class="back-link">
+             ← Voltar
+        </a>
+        <a [routerLink]="['/benefits', benefit.id, 'edit']" class="button">
+            Editar
+        </a>
+    </div>
+</section>
