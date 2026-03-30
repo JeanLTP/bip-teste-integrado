@@ -41,6 +41,6 @@ public class BenefitServiceImpl implements BenefitService {
     @Override
     public ResponseEntity<Map<String, String>> transfer(Long fromId, Long toId, BigDecimal amount) {
         benefitFacade.transfer(fromId, toId, amount);
-        ResponseEntity.ok(Map.of("message", "Transferência efetuada com sucesso!."));
+        return ResponseEntity.ok(Map.of("message", "Transferência efetuada com sucesso!."));
     }
 }
