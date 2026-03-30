@@ -1,12 +1,12 @@
 package com.example.bff.application.facade;
 
 import com.example.bff.domain.model.BenefitDTO;
+import com.example.bff.domain.model.TransferRequestDTO;
 import com.example.bff.infrastructure.client.BenefitClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +28,6 @@ public class BenefitFacade {
 
     public BenefitDTO findBenefitById(Long id) { return client.findBenefitById(id);}
 
-    public void transfer(Long fromId, Long toId, BigDecimal amount) { client.transfer(fromId, toId, amount); }
+    public void transfer(TransferRequestDTO transferRequestDTO) { client.transfer(transferRequestDTO); }
 }
 

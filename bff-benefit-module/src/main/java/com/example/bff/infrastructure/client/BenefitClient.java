@@ -1,12 +1,15 @@
 package com.example.bff.infrastructure.client;
 
 import com.example.bff.domain.model.BenefitDTO;
-import jakarta.validation.constraints.NotBlank;
+import com.example.bff.domain.model.TransferRequestDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +29,5 @@ public interface BenefitClient {
     BenefitDTO updateBenefit(@PathVariable Long id, @RequestBody BenefitDTO benefitDTO);
 
     @PostMapping("/benefits/transfer")
-    void transfer(@RequestBody @NotBlank Long fromId, @RequestBody @NotBlank Long toId, @RequestBody @NotBlank BigDecimal amount);
+    void transfer(@RequestBody TransferRequestDTO transferRequest);
 }

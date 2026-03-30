@@ -2,12 +2,12 @@ package com.example.bff.domain.service.impl;
 
 import com.example.bff.application.facade.BenefitFacade;
 import com.example.bff.domain.model.BenefitDTO;
+import com.example.bff.domain.model.TransferRequestDTO;
 import com.example.bff.domain.service.BenefitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -39,8 +39,8 @@ public class BenefitServiceImpl implements BenefitService {
     }
 
     @Override
-    public ResponseEntity<Map<String, String>> transfer(Long fromId, Long toId, BigDecimal amount) {
-        benefitFacade.transfer(fromId, toId, amount);
+    public ResponseEntity<Map<String, String>> transfer(TransferRequestDTO transferRequestDTO) {
+        benefitFacade.transfer(transferRequestDTO);
         return ResponseEntity.ok(Map.of("message", "Transferência efetuada com sucesso!."));
     }
 }

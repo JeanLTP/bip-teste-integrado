@@ -2,6 +2,7 @@ package com.example.backend.domain.service.impl;
 
 import com.example.backend.domain.mapping.BenefitMapper;
 import com.example.backend.domain.model.BenefitDTO;
+import com.example.backend.domain.model.TransferRequestDTO;
 import com.example.backend.domain.service.BenefitService;
 import com.example.backend.infrastructure.repository.BenefitRepository;
 import jakarta.transaction.Transactional;
@@ -70,15 +71,15 @@ public class BenefitServiceImpl implements BenefitService {
 
     @Override
     @Transactional
-    public void transfer(Long fromId, Long toId, BigDecimal amount) {
-        var sender = benefitRepository.findById(fromId)
+    public void transfer(TransferRequestDTO transferRequestDTO) {
+        var sender = benefitRepository.findById(transferRequestDTO.getFromId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, SENDER_NOT_EXISTS));
 
-        var receiver = benefitRepository.findById(toId)
+        var receiver = benefitRepository.findById(transferRequestDTO.getToId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, RECEIVER_NOT_EXISTS));
 
-        sender.withdraw(amount);
-        receiver.deposit(amount);
+        sender.withdraw(transferRequestDTO.getAmount());
+        receiver.deposit(transferRequestDTO.getAmount());
 
         benefitRepository.saveAll(List.of(sender, receiver));
 

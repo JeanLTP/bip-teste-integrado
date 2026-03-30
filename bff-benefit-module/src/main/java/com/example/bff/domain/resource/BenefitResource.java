@@ -1,13 +1,17 @@
 package com.example.bff.domain.resource;
 
 import com.example.bff.domain.model.BenefitDTO;
+import com.example.bff.domain.model.TransferRequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -51,9 +55,5 @@ public interface BenefitResource {
             summary = "Atualiza o valor de um benefício",
             description = "Deve fazer a transferência e atualizar o valor de ambos os benefícios"
     )
-    ResponseEntity<Map<String, String>> transfer(
-            @RequestBody @NotBlank Long fromId,
-            @RequestBody @NotBlank Long toId,
-            @RequestBody @NotBlank BigDecimal amount
-    );
+    ResponseEntity<Map<String, String>> transfer(@RequestBody TransferRequestDTO transferRequest);
 }

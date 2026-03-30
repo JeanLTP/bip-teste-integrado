@@ -1,6 +1,7 @@
 package com.example.backend.domain.resource.impl;
 
 import com.example.backend.domain.model.BenefitDTO;
+import com.example.backend.domain.model.TransferRequestDTO;
 import com.example.backend.domain.resource.BenefitResource;
 import com.example.backend.domain.service.BenefitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -42,5 +42,5 @@ public class BenefitResourceImpl implements BenefitResource {
     }
 
     @Override
-    public void transfer(Long fromId, Long toId, BigDecimal amount) { benefitService.transfer(fromId, toId, amount); }
+    public void transfer(TransferRequestDTO transferRequestDTO) { benefitService.transfer(transferRequestDTO); }
 }
