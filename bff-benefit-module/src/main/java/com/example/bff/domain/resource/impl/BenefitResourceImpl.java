@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +16,6 @@ public class BenefitResourceImpl implements BenefitResource {
 
     @Autowired
     private BenefitService benefitService;
-
 
     @Override
     public ResponseEntity<Map<String, Long>> createBenefit(BenefitDTO benefitDTO) {
@@ -36,4 +36,7 @@ public class BenefitResourceImpl implements BenefitResource {
     public BenefitDTO updateBenefit(Long id, BenefitDTO benefitDTO) {
         return benefitService.updateBenefit(id, benefitDTO);
     }
+
+    @Override
+    public ResponseEntity<Map<String, String>> transfer(Long fromId, Long toId, BigDecimal amount) { return benefitService.transfer(fromId, toId, amount); }
 }

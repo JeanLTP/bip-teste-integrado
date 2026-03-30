@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +27,7 @@ public class BenefitFacade {
     }
 
     public BenefitDTO findBenefitById(Long id) { return client.findBenefitById(id);}
+
+    public void transfer(Long fromId, Long toId, BigDecimal amount) { client.transfer(fromId, toId, amount); }
 }
 

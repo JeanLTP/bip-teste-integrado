@@ -3,10 +3,12 @@ package com.example.backend.domain.resource;
 import com.example.backend.domain.model.BenefitDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.websocket.server.PathParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -43,5 +45,16 @@ public interface BenefitResource {
     BenefitDTO updateBenefit(
             @PathVariable Long id,
             @RequestBody BenefitDTO benefitDTO
+    );
+
+    @PostMapping("/transfer")
+    @Operation(
+            summary = "Atualiza o valor de um benefício",
+            description = "Deve fazer a transferência e atualizar o valor de ambos os benefícios"
+    )
+    void transfer(
+            @RequestBody @NotBlank Long fromId,
+            @RequestBody @NotBlank Long toId,
+            @RequestBody @NotBlank BigDecimal amount
     );
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -39,4 +40,7 @@ public class BenefitResourceImpl implements BenefitResource {
     public BenefitDTO updateBenefit(Long id, BenefitDTO benefitDTO) {
         return benefitService.updateBenefit(id, benefitDTO);
     }
+
+    @Override
+    public void transfer(Long fromId, Long toId, BigDecimal amount) { benefitService.transfer(fromId, toId, amount); }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -35,5 +36,11 @@ public class BenefitServiceImpl implements BenefitService {
     @Override
     public List<BenefitDTO> findBenefits() {
         return benefitFacade.getBenefits();
+    }
+
+    @Override
+    public ResponseEntity<Map<String, String>> transfer(Long fromId, Long toId, BigDecimal amount) {
+        benefitFacade.transfer(fromId, toId, amount);
+        ResponseEntity.ok(Map.of("message", "Transferência efetuada com sucesso!."));
     }
 }
